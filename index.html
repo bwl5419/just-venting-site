@@ -365,19 +365,20 @@
       justify-content: center;
     }
     .hero-logo-card {
-      background: #132338;
-      border-radius: 8px;
-      padding: 32px 40px;
-      box-shadow: 0 0 80px rgba(37,99,168,0.20), 0 0 0 1px rgba(37,99,168,0.12);
       width: 100%;
-      max-width: 380px;
+      max-width: 560px;
       animation: fadeUp 0.72s ease both;
       animation-delay: 0.35s;
+      /* Dark wrap so logo blends cleanly — fallback if screen blend isn't clean */
+      background: #0D1B2A;
+      padding: 28px 36px;
+      border-radius: 6px;
     }
     .hero-logo-card img {
       width: 100%;
       height: auto;
       display: block;
+      mix-blend-mode: screen;
     }
     .hero-eyebrow {
       margin-bottom: 22px;
@@ -644,9 +645,9 @@
     }
     .why-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 45% 55%;
       gap: 88px;
-      align-items: center;
+      align-items: start;
     }
     .why-text .eyebrow { margin-bottom: 18px; }
     .why-text h2 {
@@ -702,8 +703,8 @@
     }
     .why-img-wrap img {
       width: 100%;
-      height: 560px;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       border-radius: var(--radius);
       box-shadow: var(--shadow-hero);
       position: relative;
@@ -713,12 +714,11 @@
     .why-img-wrap img.error-fallback {
       background: linear-gradient(135deg, #0A1628, #1E2A3A);
     }
-    /* Floating stat card on image */
+    /* Stat line below image */
     .why-float-stat {
-      position: absolute;
-      bottom: 28px;
-      left: -24px;
-      z-index: 2;
+      position: static;
+      margin-top: 16px;
+      text-align: right;
       background: var(--charcoal);
       border: 1px solid rgba(184,146,42,0.35);
       border-radius: 10px;
@@ -825,28 +825,14 @@
     .founder-img-wrap {
       position: relative;
     }
-    .founder-img-wrap::after {
-      content: '';
-      position: absolute;
-      bottom: -18px;
-      left: -18px;
-      right: 18px;
-      top: 18px;
-      border: 2px solid rgba(37,99,168,0.38);
-      border-radius: var(--radius);
-      z-index: 0;
-      pointer-events: none;
-    }
+    .founder-img-wrap::after { display: none; }
     .founder-portrait {
       width: 100%;
-      height: 500px;
-      object-fit: cover;
-      object-position: center top;
+      height: auto;
+      object-fit: contain;
       border-radius: 4px;
-      box-shadow: var(--shadow-hero);
-      position: relative;
-      z-index: 1;
       display: block;
+      background: #f5f0e8;
     }
     .founder-portrait.error-fallback {
       background: linear-gradient(135deg, #0A1628, #1E2A3A);
@@ -1303,7 +1289,7 @@
       /* Hero two-col → single col on tablet */
       .hero-layout { grid-template-columns: 1fr; gap: 48px; }
       .hero-logo-panel { justify-content: flex-start; }
-      .hero-logo-card { max-width: 320px; }
+      .hero-logo-card { max-width: 360px; }
 
       .services-hd { flex-direction: column; align-items: flex-start; gap: 16px; }
       .services-hd-right { max-width: 100%; }
@@ -1312,7 +1298,6 @@
       }
 
       .why-grid { gap: 48px; }
-      .why-img-wrap img { height: 460px; }
 
       .how-steps { grid-template-columns: repeat(2, 1fr); gap: 0; }
       .how-step:nth-child(3) { border-left: none; }
@@ -1362,9 +1347,8 @@
       /* Why */
       .why-grid { grid-template-columns: 1fr; gap: 44px; }
       .why-img-wrap { order: -1; }
-      .why-img-wrap img { height: 280px; }
       .why-img-wrap::after { display: none; }
-      .why-float-stat { left: 16px; bottom: 16px; }
+      .why-float-stat { text-align: left; }
       .why-pull { margin-left: 0; }
 
       /* How */
@@ -1375,8 +1359,7 @@
       /* Founder */
       .founder-inner { padding: 0 20px; }
       .founder-grid { grid-template-columns: 1fr; gap: 44px; }
-      .founder-portrait { aspect-ratio: 4/3; max-width: 360px; }
-      .founder-img-wrap::after { display: none; }
+      .founder-portrait { height: auto; max-width: 360px; }
 
       /* FAQ */
       .faq-inner { padding: 0 20px; }
@@ -1692,16 +1675,18 @@
       </div>
 
       <!-- Image -->
-      <div class="why-img-wrap reveal reveal-d2">
-        <img
-          src="images/before-after-duct.png"
-          alt="Before and after: interior dryer duct completely cleared of lint buildup"
-          loading="lazy"
-          decoding="async"
-          onerror="this.style.background='linear-gradient(135deg,#0A1628,#1E2A3A)'; this.alt='';"
-        >
+      <div>
+        <div class="why-img-wrap reveal reveal-d2">
+          <img
+            src="images/before-after-duct.png"
+            alt="Before and after: interior dryer duct completely cleared of lint buildup"
+            loading="lazy"
+            decoding="async"
+            onerror="this.style.background='linear-gradient(135deg,#0A1628,#1E2A3A)'; this.alt='';"
+          >
+        </div>
 
-        <!-- Floating stat callout -->
+        <!-- Stat callout below image -->
         <div class="why-float-stat" aria-label="Number one cause: failure to clean">
           <span class="why-float-num">#1</span>
           <div class="why-float-label">Cause of dryer fires: failure to clean</div>
