@@ -320,31 +320,22 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
+      background-color: #0D1B2A;
+      /* Subtle diagonal line texture at 4% opacity */
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 28px,
+        rgba(255,255,255,0.025) 28px,
+        rgba(255,255,255,0.025) 29px
+      );
     }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('images/keith-working.png');
-      background-size: cover;
-      background-position: center 20%;
-      z-index: 0;
-    }
-    .hero-bg.error-fallback {
-      background-image: none;
-      background: linear-gradient(150deg, #0A1628 0%, #1E2A3A 100%);
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(10, 22, 40, 0.68);
-      z-index: 1;
-    }
-    /* Film grain via SVG turbulence */
+    /* Grain noise layer on top of texture */
     .hero-grain {
       position: absolute;
       inset: 0;
-      z-index: 2;
-      opacity: 0.035;
+      z-index: 1;
+      opacity: 0.04;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
       background-repeat: repeat;
       background-size: 300px;
@@ -352,12 +343,41 @@
     }
     .hero-wrap {
       position: relative;
-      z-index: 3;
+      z-index: 2;
       width: 100%;
-      padding: 140px 0 100px;
+      padding: 140px 0 80px;
+    }
+    /* Two-column layout: text left, logo right */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+      margin-bottom: 52px;
     }
     .hero-content {
-      max-width: 680px;
+      /* left column — no max-width, grid constrains it */
+    }
+    /* Logo panel — right column */
+    .hero-logo-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-logo-card {
+      background: #132338;
+      border-radius: 8px;
+      padding: 32px 40px;
+      box-shadow: 0 0 80px rgba(37,99,168,0.20), 0 0 0 1px rgba(37,99,168,0.12);
+      width: 100%;
+      max-width: 380px;
+      animation: fadeUp 0.72s ease both;
+      animation-delay: 0.35s;
+    }
+    .hero-logo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
     .hero-eyebrow {
       margin-bottom: 22px;
@@ -391,7 +411,7 @@
       animation-delay: 0.45s;
     }
     .hero-tel {
-      margin-bottom: 52px;
+      margin-bottom: 0;
       animation: fadeUp 0.72s ease both;
       animation-delay: 0.45s;
     }
@@ -417,6 +437,8 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 0;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
       animation: fadeUp 0.72s ease both;
       animation-delay: 0.6s;
     }
@@ -1278,6 +1300,11 @@
     @media (max-width: 1024px) {
       :root { --pad-section: 80px; }
 
+      /* Hero two-col → single col on tablet */
+      .hero-layout { grid-template-columns: 1fr; gap: 48px; }
+      .hero-logo-panel { justify-content: flex-start; }
+      .hero-logo-card { max-width: 320px; }
+
       .services-hd { flex-direction: column; align-items: flex-start; gap: 16px; }
       .services-hd-right { max-width: 100%; }
       .services-grid {
@@ -1314,11 +1341,12 @@
       .hamburger { display: flex; }
 
       /* Hero */
-      .hero-wrap { padding: 110px 0 80px; }
-      .hero-content { max-width: 100%; }
+      .hero-wrap { padding: 110px 0 64px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 40px; }
+      .hero-logo-panel { display: none; }
       .hero-ctas { flex-direction: column; }
       .hero-ctas .btn { width: 100%; justify-content: center; }
-      .hero-badges { flex-direction: column; gap: 8px; }
+      .hero-badges { flex-direction: column; gap: 8px; padding-top: 28px; }
       .hero-badge { width: 100%; }
 
       /* Stats */
@@ -1427,39 +1455,57 @@
      HERO
 ===================================================== -->
 <section id="hero" aria-label="Hero — Just Venting LLC">
-  <div class="hero-bg" id="heroBg" role="img" aria-label="The Just Venting LLC owner on the job — dryer vent technician in branded shirt"></div>
-  <div class="hero-overlay"></div>
   <div class="hero-grain" aria-hidden="true"></div>
 
   <div class="hero-wrap">
     <div class="container">
-      <div class="hero-content">
 
-        <span class="eyebrow hero-eyebrow">West Milford, NJ &mdash; Serving Northern New Jersey</span>
+      <div class="hero-layout">
 
-        <h1 class="hero-h1">Protect Your&nbsp;Home.<br>One Vent at a&nbsp;Time.</h1>
+        <!-- Left: text content -->
+        <div class="hero-content">
 
-        <p class="hero-sub">Dryer fires start the same way every time &mdash; a clogged vent and an ignored warning sign. Just Venting LLC cleans, inspects, and protects your home so you never have to worry about&nbsp;it.</p>
+          <span class="eyebrow hero-eyebrow">West Milford, NJ &mdash; Serving Northern New Jersey</span>
 
-        <div class="hero-ctas">
-          <a href="#contact" class="btn btn-primary" aria-label="Schedule a dryer vent cleaning">Schedule a Cleaning</a>
-          <a href="#why" class="btn btn-ghost" aria-label="Learn why dryer vent cleaning matters">Learn Why It Matters</a>
+          <h1 class="hero-h1">Protect Your&nbsp;Home.<br>One Vent at a&nbsp;Time.</h1>
+
+          <p class="hero-sub">Dryer fires start the same way every time &mdash; a clogged vent and an ignored warning sign. Just Venting LLC cleans, inspects, and protects your home so you never have to worry about&nbsp;it.</p>
+
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary" aria-label="Schedule a dryer vent cleaning">Schedule a Cleaning</a>
+            <a href="#why" class="btn btn-ghost" aria-label="Learn why dryer vent cleaning matters">Learn Why It Matters</a>
+          </div>
+
+          <div class="hero-tel">
+            <div class="hero-tel-label">Or call / text directly</div>
+            <a href="tel:+18455443046" class="hero-tel-number">(845) 544-3046</a>
+          </div>
+
         </div>
 
-        <div class="hero-tel">
-          <div class="hero-tel-label">Or call / text directly</div>
-          <a href="tel:+18455443046" class="hero-tel-number">(845) 544-3046</a>
-        </div>
-
-        <div class="hero-badges" role="list" aria-label="Trust indicators">
-          <div class="hero-badge" role="listitem">30+ Yrs Firefighting</div>
-          <div class="hero-badge-divider" aria-hidden="true"></div>
-          <div class="hero-badge" role="listitem">Licensed &amp; Insured</div>
-          <div class="hero-badge-divider" aria-hidden="true"></div>
-          <div class="hero-badge" role="listitem">Eve &amp; Weekend Appts</div>
+        <!-- Right: logo -->
+        <div class="hero-logo-panel">
+          <div class="hero-logo-card">
+            <img
+              src="images/logo-sign.png"
+              alt="Just Venting LLC — Dryer Vent Cleaning &amp; Maintenance"
+              width="523"
+              height="293"
+            >
+          </div>
         </div>
 
       </div>
+
+      <!-- Full-width trust bar below both columns -->
+      <div class="hero-badges" role="list" aria-label="Trust indicators">
+        <div class="hero-badge" role="listitem">30+ Yrs Firefighting</div>
+        <div class="hero-badge-divider" aria-hidden="true"></div>
+        <div class="hero-badge" role="listitem">Licensed &amp; Insured</div>
+        <div class="hero-badge-divider" aria-hidden="true"></div>
+        <div class="hero-badge" role="listitem">Eve &amp; Weekend Appts</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -2363,17 +2409,6 @@
     thankYou.classList.add('visible');
     thankYou.focus();
   });
-
-  /* -------------------------------------------------------
-     IMAGE ERROR FALLBACKS
-  ------------------------------------------------------- */
-  var heroBg = document.getElementById('heroBg');
-  // Test if hero image loads
-  var testImg = new Image();
-  testImg.onerror = function () {
-    heroBg.classList.add('error-fallback');
-  };
-  testImg.src = 'images/keith-working.png';
 
   /* -------------------------------------------------------
      SMOOTH ANCHOR OFFSET (accounts for fixed nav)
