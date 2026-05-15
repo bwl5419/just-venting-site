@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Just Venting LLC — Dryer Vent Cleaning | West Milford, NJ</title>
+  <meta name="description" content="Professional dryer vent inspection and deep cleaning in West Milford, NJ. Founded by a 30+ year volunteer firefighter. Evening &amp; weekend appointments available. Call (845) 544-3046.">
+  <meta property="og:title" content="Just Venting LLC — Dryer Vent Cleaning | West Milford, NJ">
+  <meta property="og:description" content="Professional dryer vent cleaning by a 30+ year volunteer firefighter. Protect your home from dryer fires. Serving northern New Jersey. Call (845) 544-3046.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* =====================================================
+       RESET & BASE
+    ===================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: #1E2A3A;
+      background: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    /* =====================================================
+       DESIGN TOKENS
+    ===================================================== */
+    :root {
+      --navy:         #0A1628;
+      --accent:       #2563A8;
+      --accent-hover: #1A4F8C;
+      --accent-light: #EBF3FB;
+      --charcoal:     #1E2A3A;
+      --off-white:    #F8F5F0;
+      --white:        #FFFFFF;
+      --gold:         #B8922A;
+      --text-muted:   #5A6A7A;
+      --max-w:      1200px;
+      --pad-section: 100px;
+      --pad-mobile:  64px;
+      --radius:      12px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.12);
+      --shadow-hero: 0 8px 48px rgba(0,0,0,0.20);
+      --ease-fast:  0.2s ease;
+      --ease-reveal: 0.6s ease;
+    }
+
+    /* =====================================================
+       TYPOGRAPHY SYSTEM
+    ===================================================== */
+    h1, h2, h3 {
+      font-family: 'DM Serif Display', serif;
+      line-height: 1.15;
+      font-weight: 400;
+    }
+    h1 { font-size: clamp(2.8rem, 6vw, 5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    h3 { font-size: 1.3rem; }
+    p  { font-size: 1.05rem; line-height: 1.7; }
+
+    .eyebrow {
+      display: block;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* =====================================================
+       LAYOUT UTILITIES
+    ===================================================== */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--ease-reveal), transform var(--ease-reveal);
+    }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+    .reveal-d5 { transition-delay: 0.5s; }
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 30px;
+      border-radius: 7px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: all var(--ease-fast);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      border: 2px solid var(--accent);
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,99,168,0.38);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+    .btn-outline:hover {
+      background: var(--accent);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      padding: 22px 0;
+      transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+    }
+    #nav.scrolled {
+      background: rgba(10, 22, 40, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 0;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.32);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-wordmark {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.22rem;
+      flex-shrink: 0;
+    }
+    .nav-wordmark svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.80);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      position: relative;
+      transition: color var(--ease-fast);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent);
+      transition: width var(--ease-fast);
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+    .nav-phone-small {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .nav-phone-small a {
+      color: rgba(255,255,255,0.85);
+      transition: color var(--ease-fast);
+    }
+    .nav-phone-small a:hover { color: var(--accent); }
+    .nav-cta { padding: 10px 20px; font-size: 0.87rem; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 19px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transform-origin: center;
+      transition: transform 0.32s ease, opacity 0.32s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+    /* Mobile overlay */
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--navy);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-16px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .mobile-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+    .mobile-overlay a {
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      padding: 18px 0;
+      transition: color var(--ease-fast);
+    }
+    .mobile-overlay a:hover { color: var(--accent); }
+    .mobile-overlay-sep {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.15);
+      margin: 12px 0;
+    }
+    .mobile-overlay-phone {
+      margin-top: 24px;
+      text-align: center;
+    }
+    .mobile-overlay-phone span {
+      display: block;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .mobile-overlay-phone a {
+      font-family: 'Manrope', sans-serif !important;
+      font-size: 1.4rem !important;
+      font-weight: 800 !important;
+      color: var(--accent) !important;
+      padding: 0 !important;
+    }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://img1.wsimg.com/isteam/ip/0af6be3d-bd14-43a9-8e12-b7963bec0e0f/IMG_0021.jpg/:/rs=w:1920,cg:true');
+      background-size: cover;
+      background-position: center 30%;
+      z-index: 0;
+    }
+    .hero-bg.error-fallback {
+      background-image: none;
+      background: linear-gradient(150deg, #0A1628 0%, #1E2A3A 100%);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 22, 40, 0.58);
+      z-index: 1;
+    }
+    /* Film grain via SVG turbulence */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 300px;
+      pointer-events: none;
+    }
+    .hero-wrap {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      padding: 140px 0 100px;
+    }
+    .hero-content {
+      max-width: 680px;
+    }
+    .hero-eyebrow {
+      margin-bottom: 22px;
+      animation: fadeUp 0.72s ease both;
+      animation-delay: 0s;
+    }
+    .hero-h1 {
+      color: var(--white);
+      margin-bottom: 24px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.45);
+      animation: fadeUp 0.72s ease both;
+      animation-delay: 0.15s;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.12rem;
+      line-height: 1.78;
+      max-width: 560px;
+      margin-bottom: 36px;
+      animation: fadeUp 0.72s ease both;
+      animation-delay: 0.30s;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 30px;
+      animation: fadeUp 0.72s ease both;
+      animation-delay: 0.45s;
+    }
+    .hero-tel {
+      margin-bottom: 52px;
+      animation: fadeUp 0.72s ease both;
+      animation-delay: 0.45s;
+    }
+    .hero-tel-label {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .hero-tel-number {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      transition: color var(--ease-fast);
+    }
+    .hero-tel-number:hover { color: var(--accent); }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      animation: fadeUp 0.72s ease both;
+      animation-delay: 0.6s;
+    }
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 9px 16px;
+      border-radius: 100px;
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =====================================================
+       STATS BAR
+    ===================================================== */
+    #stats {
+      background: var(--navy);
+      padding: 80px 0;
+      position: relative;
+    }
+    #stats::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--accent) 30%, var(--accent) 70%, transparent 100%);
+    }
+    .stats-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding: 0 48px;
+    }
+    .stat-divider {
+      width: 1px;
+      height: 72px;
+      background: rgba(255,255,255,0.12);
+      flex-shrink: 0;
+    }
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3.2rem, 6vw, 5.2rem);
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .stat-suffix {
+      font-size: 0.55em;
+      vertical-align: super;
+      margin-left: 2px;
+    }
+    .stat-label {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.86rem;
+      font-weight: 500;
+      line-height: 1.45;
+      max-width: 160px;
+      margin: 0 auto;
+    }
+
+    /* =====================================================
+       SERVICES
+    ===================================================== */
+    #services {
+      background: var(--off-white);
+      padding: var(--pad-section) 0;
+    }
+    .services-hd {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .services-hd-left .eyebrow { margin-bottom: 12px; }
+    .services-hd-left h2 { color: var(--charcoal); max-width: 420px; }
+    .services-hd-right {
+      max-width: 360px;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      flex-shrink: 0;
+      padding-bottom: 4px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .svc-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--ease-fast), box-shadow var(--ease-fast);
+    }
+    .svc-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 44px rgba(0,0,0,0.16);
+    }
+    .svc-body {
+      padding: 36px 30px;
+    }
+    .svc-icon-ring {
+      width: 50px;
+      height: 50px;
+      background: rgba(37,99,168,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .svc-icon-ring svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .svc-rule {
+      width: 28px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+    .svc-card h3 {
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .svc-card p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.72;
+    }
+    /* =====================================================
+       WHY IT MATTERS
+    ===================================================== */
+    #why {
+      background: var(--navy);
+      padding: var(--pad-section) 0;
+      overflow: hidden;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 88px;
+      align-items: center;
+    }
+    .why-text .eyebrow { margin-bottom: 18px; }
+    .why-text h2 {
+      color: var(--white);
+      margin-bottom: 28px;
+      max-width: 440px;
+    }
+    .why-text p {
+      color: #E8E4DF;
+      margin-bottom: 22px;
+    }
+    .why-pull {
+      /* Intentionally break left edge of text column */
+      margin: 44px 0 0 -28px;
+      padding: 26px 30px;
+      border-left: 4px solid var(--accent);
+      background: rgba(37,99,168,0.07);
+      border-radius: 0 10px 10px 0;
+    }
+    .why-pull blockquote {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+      font-style: italic;
+      color: var(--accent);
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+    .why-pull cite {
+      color: rgba(255,255,255,0.42);
+      font-size: 0.76rem;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    /* Image side */
+    .why-img-wrap {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: visible;
+    }
+    .why-img-wrap::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      right: -20px;
+      width: 50%;
+      height: 50%;
+      border: 2px solid rgba(37,99,168,0.35);
+      border-radius: var(--radius);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .why-img-wrap img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-hero);
+      position: relative;
+      z-index: 1;
+      display: block;
+    }
+    .why-img-wrap img.error-fallback {
+      background: linear-gradient(135deg, #0A1628, #1E2A3A);
+    }
+    /* Floating stat card on image */
+    .why-float-stat {
+      position: absolute;
+      bottom: 28px;
+      left: -24px;
+      z-index: 2;
+      background: var(--charcoal);
+      border: 1px solid rgba(184,146,42,0.35);
+      border-radius: 10px;
+      padding: 16px 22px;
+      box-shadow: var(--shadow-card);
+    }
+    .why-float-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.6rem;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .why-float-label {
+      color: rgba(255,255,255,0.58);
+      font-size: 0.76rem;
+      font-weight: 600;
+      margin-top: 5px;
+      max-width: 140px;
+      line-height: 1.4;
+    }
+
+    /* =====================================================
+       HOW IT WORKS
+    ===================================================== */
+    #how {
+      background: var(--white);
+      padding: var(--pad-section) 0;
+    }
+    .how-hd {
+      text-align: center;
+      max-width: 540px;
+      margin: 0 auto 72px;
+    }
+    .how-hd .eyebrow { margin-bottom: 12px; }
+    .how-hd h2 { color: var(--charcoal); margin-bottom: 14px; }
+    .how-hd p { color: var(--text-muted); }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .how-step {
+      padding: 32px 24px 32px;
+      position: relative;
+      overflow: hidden;
+      border-left: 1px solid #D4E4F5;
+    }
+    .how-step:first-child { border-left: none; }
+    /* Large editorial numeral as background decoration */
+    .how-step-numeral {
+      font-family: 'DM Serif Display', serif;
+      font-size: 7.5rem;
+      line-height: 1;
+      color: rgba(30,42,58,0.055);
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      user-select: none;
+      pointer-events: none;
+      letter-spacing: -0.04em;
+    }
+    .how-step-content { position: relative; z-index: 1; }
+    .how-step-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .how-step h3 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .how-step p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.68;
+    }
+
+    /* =====================================================
+       FOUNDER STORY
+    ===================================================== */
+    #founder {
+      background: var(--off-white);
+      padding: var(--pad-section) 0;
+    }
+    .founder-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .founder-img-wrap {
+      position: relative;
+    }
+    .founder-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -18px;
+      left: -18px;
+      right: 18px;
+      top: 18px;
+      border: 2px solid rgba(37,99,168,0.38);
+      border-radius: var(--radius);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .founder-portrait {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-hero);
+      position: relative;
+      z-index: 1;
+      display: block;
+    }
+    .founder-portrait.error-fallback {
+      background: linear-gradient(135deg, #0A1628, #1E2A3A);
+      min-height: 360px;
+    }
+    .founder-text .eyebrow { margin-bottom: 14px; }
+    .founder-text h2 { color: var(--charcoal); margin-bottom: 28px; }
+    .founder-text p {
+      color: #4A5568;
+      margin-bottom: 22px;
+    }
+    .founder-text p:last-of-type { margin-bottom: 0; }
+    .founder-sep {
+      width: 100%;
+      height: 1px;
+      background: #D4E4F5;
+      margin: 30px 0;
+    }
+    .founder-bottom-note {
+      font-style: italic;
+      color: #6B7280;
+      font-size: 0.96rem;
+      margin-bottom: 28px;
+    }
+
+    /* =====================================================
+       TESTIMONIALS
+    ===================================================== */
+    #testimonials {
+      background: var(--charcoal);
+      padding: var(--pad-section) 0;
+    }
+    .test-hd {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .test-hd .eyebrow { margin-bottom: 12px; }
+    .test-hd h2 { color: var(--white); }
+    .test-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .test-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 30px;
+      box-shadow: var(--shadow-card);
+    }
+    .test-card.center-card {
+      padding: 40px 34px;
+      margin-top: -16px;
+    }
+    .test-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 18px;
+    }
+    .test-stars svg {
+      width: 17px;
+      height: 17px;
+      fill: #F59E0B;
+      stroke: none;
+    }
+    .test-body {
+      color: var(--charcoal);
+      font-size: 0.97rem;
+      line-height: 1.72;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    /* Large decorative quote mark */
+    .test-body::before {
+      content: '\201C';
+      font-family: 'DM Serif Display', serif;
+      font-size: 6rem;
+      color: var(--off-white);
+      position: absolute;
+      top: -28px;
+      left: -10px;
+      line-height: 1;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .test-body span { position: relative; z-index: 1; }
+    .test-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid #F0EDE8;
+      padding-top: 18px;
+    }
+    .test-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .test-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--charcoal);
+      margin-bottom: 2px;
+    }
+    .test-loc {
+      font-size: 0.78rem;
+      color: #9CA3AF;
+    }
+
+    /* =====================================================
+       FAQ
+    ===================================================== */
+    #faq {
+      background: var(--off-white);
+      padding: var(--pad-section) 0;
+    }
+    .faq-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+    .faq-hd { margin-bottom: 48px; }
+    .faq-hd .eyebrow { margin-bottom: 12px; }
+    .faq-hd h2 { color: var(--charcoal); }
+    .faq-list { border-top: 1px solid #CFE0F2; }
+    .faq-item { border-bottom: 1px solid #CFE0F2; }
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      transition: color var(--ease-fast);
+    }
+    .faq-q:hover { color: var(--accent); }
+    .faq-toggle {
+      width: 30px;
+      height: 30px;
+      background: rgba(37,99,168,0.10);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background var(--ease-fast);
+    }
+    .faq-toggle svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      transition: transform 0.32s ease;
+    }
+    .faq-item.open .faq-toggle { background: var(--accent); }
+    .faq-item.open .faq-toggle svg { stroke: var(--white); transform: rotate(45deg); }
+    .faq-ans {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.42s ease;
+    }
+    .faq-item.open .faq-ans { max-height: 320px; }
+    .faq-ans-inner {
+      padding: 0 0 24px;
+      color: #5A6A7A;
+      font-size: 0.98rem;
+      line-height: 1.78;
+    }
+
+    /* =====================================================
+       CONTACT / BOOK
+    ===================================================== */
+    #contact {
+      padding: var(--pad-section) 0;
+      background: var(--white);
+    }
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-hero);
+    }
+    .contact-left {
+      background: var(--navy);
+      padding: 64px 52px;
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-left .eyebrow { margin-bottom: 12px; }
+    .contact-left h2 { color: var(--white); margin-bottom: 12px; }
+    .contact-left > .contact-sub {
+      color: rgba(255,255,255,0.58);
+      font-size: 0.97rem;
+      margin-bottom: 44px;
+    }
+    .contact-details { flex: 1; display: flex; flex-direction: column; gap: 26px; }
+    .c-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .c-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(37,99,168,0.14);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .c-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .c-label {
+      color: rgba(255,255,255,0.38);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .c-value {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .c-value a {
+      color: var(--white);
+      transition: color var(--ease-fast);
+    }
+    .c-value a:hover { color: var(--accent); }
+    .contact-areas {
+      margin-top: 44px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.09);
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      line-height: 1.65;
+    }
+    /* Form side */
+    .contact-right {
+      background: var(--white);
+      padding: 64px 52px;
+    }
+    .contact-right h3 {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 1.12rem;
+      color: var(--charcoal);
+      margin-bottom: 28px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7B8997;
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid #E4E7EB;
+      border-radius: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.97rem;
+      color: var(--charcoal);
+      background: #FAFAFA;
+      outline: none;
+      transition: border-color var(--ease-fast), background var(--ease-fast);
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 42px;
+      cursor: pointer;
+    }
+    .form-group textarea { height: 100px; resize: vertical; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      background: var(--white);
+    }
+    .form-group input.field-error,
+    .form-group select.field-error,
+    .form-group textarea.field-error {
+      border-color: #EF4444;
+      background: #FFF5F5;
+    }
+    .field-err-msg {
+      display: none;
+      color: #EF4444;
+      font-size: 0.76rem;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+    .form-group.has-error .field-err-msg { display: block; }
+    .form-submit { width: 100%; padding: 17px; font-size: 1rem; margin-top: 6px; }
+    /* Thank you state */
+    .form-ty {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .form-ty.visible { display: block; }
+    .form-ty .ty-ring {
+      width: 68px;
+      height: 68px;
+      background: rgba(34,197,94,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+    }
+    .form-ty .ty-ring svg {
+      width: 32px;
+      height: 32px;
+      stroke: #22C55E;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .form-ty h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .form-ty p { color: var(--text-muted); font-size: 1rem; }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    #footer {
+      background: var(--navy);
+      padding-top: 72px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 64px;
+    }
+    .footer-brand-wrap .wordmark {
+      font-family: 'DM Serif Display', serif;
+      color: var(--white);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 16px;
+    }
+    .footer-brand-wrap .wordmark svg { width: 24px; height: 24px; }
+    .footer-tagline {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      max-width: 280px;
+      margin-bottom: 28px;
+    }
+    .footer-copy {
+      color: rgba(255,255,255,0.25);
+      font-size: 0.76rem;
+    }
+    .footer-col-hd {
+      color: var(--white);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .footer-col-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col-links a {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.92rem;
+      transition: color var(--ease-fast);
+    }
+    .footer-col-links a:hover { color: var(--accent); }
+    .footer-contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-contact-block a,
+    .footer-contact-block span {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.92rem;
+      display: block;
+      transition: color var(--ease-fast);
+    }
+    .footer-contact-block a:hover { color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid rgba(37,99,168,0.45);
+      padding: 20px 0;
+    }
+    .footer-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .footer-bottom-row span {
+      color: rgba(255,255,255,0.25);
+      font-size: 0.76rem;
+    }
+
+    /* =====================================================
+       RESPONSIVE — TABLET (≤1024px)
+    ===================================================== */
+    @media (max-width: 1024px) {
+      :root { --pad-section: 80px; }
+
+      .services-hd { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .services-hd-right { max-width: 100%; }
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .why-grid { gap: 48px; }
+      .why-img-wrap img { height: 460px; }
+
+      .how-steps { grid-template-columns: repeat(2, 1fr); gap: 0; }
+      .how-step:nth-child(3) { border-left: none; }
+
+      .founder-grid { grid-template-columns: 240px 1fr; gap: 48px; }
+
+      .test-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+      .test-card.center-card { margin-top: 0; padding: 32px 30px; }
+
+      .contact-box { grid-template-columns: 1fr; }
+      .contact-left { padding: 52px 44px; }
+      .contact-right { padding: 52px 44px; }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 44px; }
+      .footer-brand-wrap { grid-column: 1 / -1; }
+    }
+
+    /* =====================================================
+       RESPONSIVE — MOBILE (≤768px)
+    ===================================================== */
+    @media (max-width: 768px) {
+      :root { --pad-section: var(--pad-mobile); }
+
+      /* Nav */
+      .nav-links, .nav-phone-small, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      /* Hero */
+      .hero-wrap { padding: 110px 0 80px; }
+      .hero-content { max-width: 100%; }
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .hero-badges { flex-direction: column; gap: 8px; }
+      .hero-badge { width: 100%; }
+
+      /* Stats */
+      .stats-row { flex-direction: column; gap: 44px; }
+      .stat-divider { width: 60px; height: 1px; }
+
+      /* Services */
+      .services-grid { grid-template-columns: 1fr; }
+
+      /* Why */
+      .why-grid { grid-template-columns: 1fr; gap: 44px; }
+      .why-img-wrap { order: -1; }
+      .why-img-wrap img { height: 280px; }
+      .why-img-wrap::after { display: none; }
+      .why-float-stat { left: 16px; bottom: 16px; }
+      .why-pull { margin-left: 0; }
+
+      /* How */
+      .how-steps { grid-template-columns: 1fr; }
+      .how-step { border-left: none; border-top: 1px solid #D4E4F5; }
+      .how-step:first-child { border-top: none; }
+
+      /* Founder */
+      .founder-inner { padding: 0 20px; }
+      .founder-grid { grid-template-columns: 1fr; gap: 44px; }
+      .founder-portrait { aspect-ratio: 4/3; max-width: 360px; }
+      .founder-img-wrap::after { display: none; }
+
+      /* FAQ */
+      .faq-inner { padding: 0 20px; }
+
+      /* Contact */
+      .contact-left { padding: 44px 24px; }
+      .contact-right { padding: 44px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-brand-wrap { grid-column: auto; }
+      .footer-bottom-row { flex-direction: column; text-align: center; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-wordmark" aria-label="Just Venting LLC — home">
+      <!-- Flame SVG icon -->
+      <svg viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M13 2C13 2 18 8 18 13C18 15.5 16.5 17.5 14.5 18.5C15 16 14 14 12 13C12.5 15 11 17 9 17C7 17 5.5 15.2 5.5 13C5.5 10 8 7 8 7C8 7 6 10 7.5 12C8.5 10.5 10 9 10 9C10 9 9 12 11 13.5C11.5 12 12 10 11 8C13 9 14.5 11 14 13.5C15.5 12.5 16 10.5 15 8.5C17 10 18.5 13 17 16.5C18.5 15 19.5 13 19.5 10.5C21 12.5 21 16 20 18.5C21.5 17.5 22.5 15.5 22.5 13C22.5 6 17 0 13 0C9 0 4.5 4 3 8C1.5 12 2.5 17 5 20C6.5 21.5 8.5 22.5 10.5 22.5C12 22.5 13.5 22 14.5 21C16.5 19.5 18 16.5 17.5 13.5" fill="none" stroke="none"/>
+        <path d="M13 1C10 5 7 9 7 13C7 16.3 9.7 19 13 19C16.3 19 19 16.3 19 13C19 10 17 7.5 15.5 6C15.5 8 14.5 9.5 13 10.5C13.5 9 13 7.5 12 6.5C11.5 8 10.5 9.5 10.5 11C9.5 10 9 8.5 9.5 7C8 9 7.5 11.5 8.5 13.5C7 12.5 6.5 10.5 7 9" stroke="#2563A8" stroke-width="0" fill="none"/>
+        <!-- Simple clean flame shape -->
+        <path d="M13 29C13 29 5 24 5 16C5 11 8 7 10 5C10 7 11 9 12.5 10C12 8.5 12.5 6.5 14 5C14 7 15 9 14 11C16 9.5 17 7.5 16.5 5.5C18.5 8 19 11.5 17.5 14.5C19.5 13 20.5 10.5 20 8C21.5 10.5 22 14 20.5 17C19 19.5 16.5 21.5 16.5 21.5C18 19 18 16.5 16.5 14.5C17 17 15.5 20 13 21.5C14.5 19 14.5 16 12.5 14C13 16.5 12 19.5 9.5 21C11 19.5 11.5 17 10.5 15C9 17 9 21 11 24C9 23 7 21 6.5 18.5C6 21 7 24.5 9 27C10 28 11.5 29 13 29Z" fill="#2563A8"/>
+        <ellipse cx="13" cy="28" rx="4" ry="1.5" fill="rgba(37,99,168,0.2)"/>
+      </svg>
+      Just Venting LLC
+    </a>
+
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#founder">About</a>
+      <a href="#why">Why It Matters</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-phone-small">
+        <a href="tel:+18455443046">(845) 544-3046</a>
+      </div>
+      <a href="#contact" class="btn btn-primary nav-cta" aria-label="Book a cleaning appointment">Book a Cleaning</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Overlay Menu -->
+<div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-label="Mobile navigation">
+  <a href="#services" class="mobile-nav-link">Services</a>
+  <div class="mobile-overlay-sep"></div>
+  <a href="#founder" class="mobile-nav-link">About</a>
+  <div class="mobile-overlay-sep"></div>
+  <a href="#why" class="mobile-nav-link">Why It Matters</a>
+  <div class="mobile-overlay-sep"></div>
+  <a href="#faq" class="mobile-nav-link">FAQ</a>
+  <div class="mobile-overlay-sep"></div>
+  <a href="#contact" class="mobile-nav-link">Contact</a>
+  <div class="mobile-overlay-phone">
+    <span>Call or Text</span>
+    <a href="tel:+18455443046">(845) 544-3046</a>
+  </div>
+</div>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+<section id="hero" aria-label="Hero — Just Venting LLC">
+  <div class="hero-bg" id="heroBg" role="img" aria-label="The Just Venting LLC owner on the job — dryer vent technician in branded shirt"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
+
+  <div class="hero-wrap">
+    <div class="container">
+      <div class="hero-content">
+
+        <span class="eyebrow hero-eyebrow">West Milford, NJ &mdash; Serving Northern New Jersey</span>
+
+        <h1 class="hero-h1">Protect Your&nbsp;Home.<br>One Vent at a&nbsp;Time.</h1>
+
+        <p class="hero-sub">Dryer fires start the same way every time &mdash; a clogged vent and an ignored warning sign. Just Venting LLC cleans, inspects, and protects your home so you never have to worry about&nbsp;it.</p>
+
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary" aria-label="Schedule a dryer vent cleaning">Schedule a Cleaning</a>
+          <a href="#why" class="btn btn-ghost" aria-label="Learn why dryer vent cleaning matters">Learn Why It Matters</a>
+        </div>
+
+        <div class="hero-tel">
+          <div class="hero-tel-label">Or call / text directly</div>
+          <a href="tel:+18455443046" class="hero-tel-number">(845) 544-3046</a>
+        </div>
+
+        <div class="hero-badges">
+          <div class="hero-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563A8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            30+ Years Firefighting
+          </div>
+          <div class="hero-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563A8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Licensed &amp; Insured
+          </div>
+          <div class="hero-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563A8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Evening &amp; Weekend Appointments
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     STATS BAR
+===================================================== -->
+<section id="stats" aria-label="Key statistics">
+  <div class="container">
+    <div class="stats-row">
+
+      <div class="stat-item reveal">
+        <span class="stat-number" data-target="13820" id="stat1">0</span>
+        <span class="stat-label">home dryer fires per year &mdash; and failure to clean is the leading cause <span style="display:block; margin-top:5px; font-size:0.76rem; color: rgba(255,255,255,0.35);">Source: NFPA</span></span>
+      </div>
+
+      <div class="stat-divider" aria-hidden="true"></div>
+
+      <div class="stat-item reveal reveal-d2">
+        <span class="stat-number" id="stat2">0<span class="stat-suffix">+</span></span>
+        <span class="stat-label">years volunteering as a firefighter, before starting this business</span>
+      </div>
+
+      <div class="stat-divider" aria-hidden="true"></div>
+
+      <div class="stat-item reveal reveal-d4">
+        <span class="stat-number" id="stat3">0<span class="stat-suffix">%</span></span>
+        <span class="stat-label">satisfaction guaranteed &mdash; we don't leave until the job is done right</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+<section id="services" aria-label="Our services">
+  <div class="container">
+
+    <div class="services-hd">
+      <div class="services-hd-left reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2>Three things we get right,<br>every single time.</h2>
+      </div>
+      <p class="services-hd-right reveal reveal-d2">Every visit covers inspection, deep cleaning, and cleanup. No partial jobs, no shortcuts. You get the full picture of your vent system's health and leave with peace&nbsp;of&nbsp;mind.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Card 1 -->
+      <div class="svc-card reveal">
+        <div class="svc-body">
+          <div class="svc-icon-ring" aria-hidden="true">
+            <!-- Magnifying glass with air waves -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10" cy="10" r="7"/>
+              <line x1="15.5" y1="15.5" x2="21" y2="21"/>
+              <path d="M6.5 10c0-1.9 1.6-3.5 3.5-3.5" stroke-dasharray="2 1.5"/>
+            </svg>
+          </div>
+          <div class="svc-rule" aria-hidden="true"></div>
+          <h3>Thorough Inspection</h3>
+          <p>We run a complete diagnostic of your dryer vent system from the machine all the way to the exterior cap &mdash; checking for blockages, improper routing, and damage that creates fire risk. You'll know exactly what we found and why it matters.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="svc-card reveal reveal-d2">
+        <div class="svc-body">
+          <div class="svc-icon-ring" aria-hidden="true">
+            <!-- Wind/air wave brush -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+            </svg>
+          </div>
+          <div class="svc-rule" aria-hidden="true"></div>
+          <h3>Deep Vent Cleaning</h3>
+          <p>Every trace of lint, dust, and debris is extracted from your vents using professional-grade equipment. We clean the full vent line, the transition hose, and the area immediately around the dryer itself. When we leave, airflow is restored to spec.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="svc-card reveal reveal-d3">
+        <div class="svc-body">
+          <div class="svc-icon-ring" aria-hidden="true">
+            <!-- Shield with checkmark -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <polyline points="9 12 11 14 15 10"/>
+            </svg>
+          </div>
+          <div class="svc-rule" aria-hidden="true"></div>
+          <h3>We Leave It Clean</h3>
+          <p>Some services leave a mess and call it done. We don't. After every job, we clean up lint, dust, and debris from the laundry area. You'll find the space around your dryer cleaner than when we arrived &mdash; not just safer.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     WHY IT MATTERS
+===================================================== -->
+<section id="why" aria-label="Why dryer vent cleaning matters">
+  <div class="container">
+    <div class="why-grid">
+
+      <!-- Text -->
+      <div class="why-text reveal">
+        <span class="eyebrow">The Risk Is Real</span>
+        <h2>Your dryer vent could be the most dangerous thing in your home.</h2>
+
+        <p>According to the National Fire Protection Association, dryers and washing machines cause an estimated <strong style="color: var(--accent);">13,820 home structure fires</strong> every year in the United States. These fires result in deaths, hundreds of injuries, and more than $238 million in property damage annually.</p>
+
+        <p>The leading cause &mdash; by a significant margin &mdash; is failure to clean. Not a mechanical defect. Not an electrical fault. Just accumulated lint that nobody removed. The fire starts in the vent, travels through the wall, and by the time smoke detectors go off, the damage is already done.</p>
+
+        <p>Most homeowners don't think about their dryer vent until something goes wrong. A 30-minute cleaning appointment is genuinely one of the easiest, most cost-effective home safety improvements you can make. The question isn't whether it's worth doing. It's whether you've done it&nbsp;recently.</p>
+
+        <div class="why-pull">
+          <blockquote>"I've seen firsthand what happens when dryer vents aren't maintained. That's why I started Just Venting."</blockquote>
+          <cite>&mdash; Founder, 30+ Year Volunteer Firefighter</cite>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="why-img-wrap reveal reveal-d2">
+        <img
+          src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=80"
+          alt="Experienced tradesman with professional tools, ready to perform a thorough dryer vent inspection"
+          loading="lazy"
+          decoding="async"
+          onerror="this.style.background='linear-gradient(135deg,#0A1628,#1E2A3A)'; this.alt='';"
+        >
+
+        <!-- Floating stat callout -->
+        <div class="why-float-stat" aria-label="Number one cause: failure to clean">
+          <span class="why-float-num">#1</span>
+          <div class="why-float-label">Cause of dryer fires: failure to clean</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     HOW IT WORKS
+===================================================== -->
+<section id="how" aria-label="How the cleaning process works">
+  <div class="container">
+
+    <div class="how-hd reveal">
+      <span class="eyebrow">The Process</span>
+      <h2>It's easier than you think.</h2>
+      <p>Four steps from first contact to a cleaner, safer home. We've made it as simple as possible because protecting your home shouldn't require half a day off work.</p>
+    </div>
+
+    <div class="how-steps">
+
+      <div class="how-step reveal">
+        <span class="how-step-numeral" aria-hidden="true">01</span>
+        <div class="how-step-content">
+          <span class="how-step-tag">Step One</span>
+          <h3>Schedule Online or Call</h3>
+          <p>Pick a time that works for you. We offer evening and weekend slots so you don't have to take time off work or rearrange your week.</p>
+        </div>
+      </div>
+
+      <div class="how-step reveal reveal-d2">
+        <span class="how-step-numeral" aria-hidden="true">02</span>
+        <div class="how-step-content">
+          <span class="how-step-tag">Step Two</span>
+          <h3>We Arrive On Time</h3>
+          <p>Punctual, professional, and ready to work. We respect your home and your schedule &mdash; no half-day windows, no last-minute surprises.</p>
+        </div>
+      </div>
+
+      <div class="how-step reveal reveal-d3">
+        <span class="how-step-numeral" aria-hidden="true">03</span>
+        <div class="how-step-content">
+          <span class="how-step-tag">Step Three</span>
+          <h3>Full Inspection &amp; Cleaning</h3>
+          <p>We run the complete process &mdash; inspection, deep cleaning, and airflow verification. Nothing skipped, nothing left to chance.</p>
+        </div>
+      </div>
+
+      <div class="how-step reveal reveal-d4">
+        <span class="how-step-numeral" aria-hidden="true">04</span>
+        <div class="how-step-content">
+          <span class="how-step-tag">Step Four</span>
+          <h3>You're Protected</h3>
+          <p>Leave confident that your home is safer. We'll flag anything that needs follow-up and give you an honest picture of your system's condition.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+     FOUNDER STORY
+===================================================== -->
+<section id="founder" aria-label="About the founder">
+  <div class="founder-inner">
+
+    <div class="founder-grid">
+
+      <!-- Portrait -->
+      <div class="founder-img-wrap reveal">
+        <img
+          src="https://img1.wsimg.com/isteam/ip/0af6be3d-bd14-43a9-8e12-b7963bec0e0f/IMG_7109.jpg/:/rs=w:900,cg:true"
+          alt="The founder of Just Venting LLC — 30+ year volunteer firefighter and professional dryer vent technician"
+          class="founder-portrait"
+          loading="lazy"
+          decoding="async"
+          onerror="this.src='https://img1.wsimg.com/isteam/ip/0af6be3d-bd14-43a9-8e12-b7963bec0e0f/IMG_0021.jpg/:/rs=w:900,cg:true'; this.onerror=function(){this.classList.add('error-fallback'); this.alt='';};"
+        >
+      </div>
+
+      <!-- Text -->
+      <div class="founder-text reveal reveal-d2">
+        <span class="eyebrow founder-eyebrow">Why I Started Just Venting</span>
+        <h2>Thirty years of fighting fires.<br>One decision to prevent them.</h2>
+
+        <p>After more than 30 years as a volunteer firefighter in New Jersey, I've responded to more house fires than I care to count &mdash; and what's stayed with me is how many of them didn't have to happen.</p>
+
+        <p>Dryer fires are among the most common residential fires, and nearly every single one starts the same way: a vent that nobody cleaned. I started Just Venting LLC to do something about that &mdash; not just respond after the fact, but prevent the fire before it starts.</p>
+
+        <p>When I come to your home, I bring that same seriousness to the work. This isn't a weekend side hustle. It's skilled trade work by someone who has seen what's at stake.</p>
+
+        <div class="founder-sep" aria-hidden="true"></div>
+
+        <p class="founder-bottom-note">Evening and weekend appointments available. No hassle. No surprises.</p>
+
+        <a href="#contact" class="btn btn-outline" aria-label="Book a cleaning with Just Venting LLC">Book Your Appointment</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+     TESTIMONIALS
+===================================================== -->
+<section id="testimonials" aria-label="Customer testimonials">
+  <div class="container">
+
+    <div class="test-hd reveal">
+      <span class="eyebrow">What Our Customers Say</span>
+      <h2>Real results.<br>Real neighbors.</h2>
+    </div>
+
+    <div class="test-grid">
+
+      <!-- Card 1 -->
+      <div class="test-card reveal">
+        <div class="test-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="test-body">
+          <span>I had no idea how important dryer vent cleaning was until my drying times doubled. Called Just Venting and within a week I was back to normal. Extremely professional, explained everything he found, and left the laundry room spotless. Honestly embarrassed it took me this long to get it done.</span>
+        </div>
+        <div class="test-author">
+          <div class="test-avatar" style="background: linear-gradient(135deg, #2563A8, #1A4F8C);" aria-hidden="true">JM</div>
+          <div>
+            <div class="test-name">Jennifer M.</div>
+            <div class="test-loc">Wayne, NJ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 — Center / featured -->
+      <div class="test-card center-card reveal reveal-d2">
+        <div class="test-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="test-body">
+          <span>As a homeowner I try to keep up with maintenance but dryer vents completely slipped my mind for years. Highly recommend Just Venting &mdash; fast appointment, fair price, and the peace of mind is worth every dollar. He walked me through what he found and what to watch for going forward. That's the kind of service you actually remember.</span>
+        </div>
+        <div class="test-author">
+          <div class="test-avatar" style="background: linear-gradient(135deg, #0A1628, #1E2A3A);" aria-hidden="true">TR</div>
+          <div>
+            <div class="test-name">Tom R.</div>
+            <div class="test-loc">West Milford, NJ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="test-card reveal reveal-d3">
+        <div class="test-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="test-body">
+          <span>My dryer was taking two full cycles to dry a load. After Just Venting came out it was back to one cycle. Wish I had done this sooner. Friendly, on time, and thorough &mdash; and the laundry room was cleaner when he left than when he arrived. Book them. Don't wait.</span>
+        </div>
+        <div class="test-author">
+          <div class="test-avatar" style="background: linear-gradient(135deg, #2563A8, #0A1628);" aria-hidden="true">ML</div>
+          <div>
+            <div class="test-name">Maria L.</div>
+            <div class="test-loc">Ringwood, NJ</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+<section id="faq" aria-label="Frequently asked questions">
+  <div class="faq-inner">
+
+    <div class="faq-hd reveal">
+      <span class="eyebrow">Common Questions</span>
+      <h2>Everything you're<br>probably wondering.</h2>
+    </div>
+
+    <div class="faq-list reveal reveal-d1" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-1">
+          How often should dryer vents be cleaned?
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+          </span>
+        </button>
+        <div class="faq-ans" id="faq-ans-1" role="region">
+          <div class="faq-ans-inner">
+            The NFPA recommends having your dryer vent inspected and cleaned at least once per year. Households that do many loads of laundry per week, use a gas dryer, or have longer or more complex vent routes may benefit from cleaning every six months. If you've never had it cleaned and you've lived in your home for more than a year, it's already overdue.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-2">
+          How long does the cleaning take?
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+          </span>
+        </button>
+        <div class="faq-ans" id="faq-ans-2" role="region">
+          <div class="faq-ans-inner">
+            Most appointments take between 45 minutes and 90 minutes depending on the length and routing of your vent line and how long it's been since the last cleaning. Longer duct runs or older flexible hosing can add time. We'll give you an accurate estimate when you book so there are no surprises.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-3">
+          What are the warning signs I need a cleaning?
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+          </span>
+        </button>
+        <div class="faq-ans" id="faq-ans-3" role="region">
+          <div class="faq-ans-inner">
+            The most common warning signs are: clothes taking longer than one cycle to fully dry, the dryer or your laundry feeling unusually hot after a cycle, a burning or musty smell during operation, excessive lint around the dryer door or vent area, or it's simply been more than a year since your last cleaning. Any one of these is reason enough to schedule an inspection.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-4">
+          Do I need to do anything to prepare?
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+          </span>
+        </button>
+        <div class="faq-ans" id="faq-ans-4" role="region">
+          <div class="faq-ans-inner">
+            Just make sure the dryer is accessible and the laundry area has some clearance around it so we can work comfortably. We handle everything else &mdash; equipment, cleanup, all of it. There's nothing special you need to do or buy beforehand.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-5">
+          Do you serve my area?
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+          </span>
+        </button>
+        <div class="faq-ans" id="faq-ans-5" role="region">
+          <div class="faq-ans-inner">
+            We're based in West Milford, NJ and serve communities throughout northern New Jersey, including Ringwood, Wayne, Pompton Lakes, Oakland, Bloomingdale, Wanaque, and surrounding areas near the Hudson Valley border. Not sure if you're in range? Call or text <a href="tel:+18455443046" style="color: var(--accent); font-weight: 700;">(845) 544-3046</a> and we'll confirm your location right away.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+     CONTACT / BOOK
+===================================================== -->
+<section id="contact" aria-label="Book a cleaning appointment">
+  <div class="container">
+
+    <div class="contact-box reveal">
+
+      <!-- Left — info -->
+      <div class="contact-left">
+        <div>
+          <span class="eyebrow">Get in Touch</span>
+          <h2>Book Your Cleaning</h2>
+          <p class="contact-sub">Evening and weekend slots available. We respond within 24 hours &mdash; usually much sooner.</p>
+        </div>
+
+        <div class="contact-details">
+          <div class="c-item">
+            <div class="c-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.18-1.18a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="c-label">Phone / Text</div>
+              <div class="c-value"><a href="tel:+18455443046">(845) 544-3046</a></div>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <div class="c-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <div class="c-label">Email</div>
+              <div class="c-value"><a href="mailto:justventllc@gmail.com">justventllc@gmail.com</a></div>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <div class="c-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <div class="c-label">Location</div>
+              <div class="c-value">West Milford, NJ</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-areas">
+          Serving West Milford, Ringwood, Wayne, Pompton Lakes, Oakland, Bloomingdale, Wanaque, and surrounding northern New Jersey communities.
+        </div>
+      </div>
+
+      <!-- Right — form -->
+      <div class="contact-right">
+        <h3>Request Your Appointment</h3>
+
+        <form id="contactForm" novalidate>
+
+          <div class="form-row">
+            <div class="form-group" id="fg-name">
+              <label for="fname">Full Name <span style="color:#EF4444">*</span></label>
+              <input type="text" id="fname" name="name" placeholder="Jane Smith" autocomplete="name" required>
+              <span class="field-err-msg">Please enter your name.</span>
+            </div>
+            <div class="form-group" id="fg-phone">
+              <label for="fphone">Phone <span style="color:#EF4444">*</span></label>
+              <input type="tel" id="fphone" name="phone" placeholder="(201) 555-0100" autocomplete="tel" required>
+              <span class="field-err-msg">Please enter your phone number.</span>
+            </div>
+          </div>
+
+          <div class="form-group" id="fg-email">
+            <label for="femail">Email <span style="color:#EF4444">*</span></label>
+            <input type="email" id="femail" name="email" placeholder="jane@example.com" autocomplete="email" required>
+            <span class="field-err-msg">Please enter a valid email address.</span>
+          </div>
+
+          <div class="form-group" id="fg-day">
+            <label for="fday">Preferred Appointment Time <span style="color:#EF4444">*</span></label>
+            <select id="fday" name="preferred_day" required>
+              <option value="" disabled selected>Select a preferred time</option>
+              <option value="weekday-morning">Weekday Morning</option>
+              <option value="weekday-evening">Weekday Evening</option>
+              <option value="saturday">Saturday</option>
+              <option value="sunday">Sunday</option>
+            </select>
+            <span class="field-err-msg">Please select a preferred time.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="fmsg">Message <span style="color:#9CA3AF; font-weight: 400;">(optional)</span></label>
+            <textarea id="fmsg" name="message" placeholder="Anything helpful to know — e.g. vent location, last cleaning date, specific concerns..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit" aria-label="Submit cleaning appointment request">
+            Request My Cleaning Appointment
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+
+        </form>
+
+        <!-- Thank you message -->
+        <div class="form-ty" id="formThankYou" aria-live="polite">
+          <div class="ty-ring" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h4>You're all set!</h4>
+          <p>Thanks for reaching out. We'll get back to you within 24 hours to confirm your appointment. Talk soon!</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer id="footer" aria-label="Site footer">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand-wrap">
+        <div class="wordmark">
+          <svg viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M13 29C13 29 5 24 5 16C5 11 8 7 10 5C10 7 11 9 12.5 10C12 8.5 12.5 6.5 14 5C14 7 15 9 14 11C16 9.5 17 7.5 16.5 5.5C18.5 8 19 11.5 17.5 14.5C19.5 13 20.5 10.5 20 8C21.5 10.5 22 14 20.5 17C19 19.5 16.5 21.5 16.5 21.5C18 19 18 16.5 16.5 14.5C17 17 15.5 20 13 21.5C14.5 19 14.5 16 12.5 14C13 16.5 12 19.5 9.5 21C11 19.5 11.5 17 10.5 15C9 17 9 21 11 24C9 23 7 21 6.5 18.5C6 21 7 24.5 9 27C10 28 11.5 29 13 29Z" fill="#2563A8"/>
+          </svg>
+          Just Venting LLC
+        </div>
+        <p class="footer-tagline">Protecting Northern NJ homes, one vent at a time. Founded by a firefighter who's seen what happens when this gets skipped.</p>
+        <p class="footer-copy">&copy; 2025 Just Venting LLC. All Rights Reserved.</p>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <p class="footer-col-hd">Quick Links</p>
+        <nav class="footer-col-links" aria-label="Footer navigation">
+          <a href="#services">Services</a>
+          <a href="#founder">About</a>
+          <a href="#why">Why It Matters</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Book a Cleaning</a>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="footer-col-hd">Contact</p>
+        <div class="footer-contact-block">
+          <a href="tel:+18455443046">(845) 544-3046</a>
+          <a href="mailto:justventllc@gmail.com">justventllc@gmail.com</a>
+          <span>West Milford, NJ</span>
+          <span style="margin-top: 8px; font-size: 0.82rem; line-height: 1.55;">Serving northern New Jersey &amp; the Hudson Valley border region</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-row">
+        <span>&copy; 2025 Just Venting LLC. All Rights Reserved. West Milford, NJ.</span>
+        <span>Dryer vent cleaning • Northern New Jersey</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+<script>
+(function () {
+  'use strict';
+
+  /* -------------------------------------------------------
+     NAV: transparent → solid on scroll
+  ------------------------------------------------------- */
+  var nav = document.getElementById('nav');
+  var scrollThreshold = 80;
+
+  function handleNavScroll() {
+    if (window.scrollY > scrollThreshold) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', handleNavScroll, { passive: true });
+  handleNavScroll();
+
+  /* -------------------------------------------------------
+     HAMBURGER / MOBILE OVERLAY
+  ------------------------------------------------------- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileOverlay = document.getElementById('mobileOverlay');
+  var mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  var overlayOpen = false;
+
+  function openMenu() {
+    overlayOpen = true;
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close menu');
+    mobileOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    overlayOpen = false;
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
+    mobileOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', function () {
+    if (overlayOpen) { closeMenu(); } else { openMenu(); }
+  });
+
+  mobileLinks.forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  /* -------------------------------------------------------
+     SCROLL REVEAL (IntersectionObserver)
+  ------------------------------------------------------- */
+  var revealEls = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    // Fallback: show all
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
+  /* -------------------------------------------------------
+     ANIMATED NUMBER COUNTERS (Stats Bar)
+  ------------------------------------------------------- */
+  var countersStarted = false;
+
+  var counters = [
+    { el: document.getElementById('stat1'), target: 13820, suffix: '', duration: 2000 },
+    { el: document.getElementById('stat2'), target: 30,    suffix: '+', duration: 1400 },
+    { el: document.getElementById('stat3'), target: 100,   suffix: '%', duration: 1600 }
+  ];
+
+  function easeOutQuad(t) { return t * (2 - t); }
+
+  function animateCounter(counter) {
+    var start = null;
+    var startVal = 0;
+    var target = counter.target;
+    var duration = counter.duration;
+    var el = counter.el;
+    var suffix = counter.suffix;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var elapsed = timestamp - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = easeOutQuad(progress);
+      var current = Math.round(startVal + (target - startVal) * eased);
+      // Format with commas for 13820
+      var formatted = current.toLocaleString('en-US');
+      el.textContent = formatted + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  var statsSection = document.getElementById('stats');
+
+  if ('IntersectionObserver' in window) {
+    var statsObserver = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting && !countersStarted) {
+        countersStarted = true;
+        counters.forEach(animateCounter);
+        statsObserver.disconnect();
+      }
+    }, { threshold: 0.3 });
+    statsObserver.observe(statsSection);
+  } else {
+    counters.forEach(function (c) {
+      c.el.textContent = c.target.toLocaleString('en-US') + c.suffix;
+    });
+  }
+
+  /* -------------------------------------------------------
+     FAQ ACCORDION
+  ------------------------------------------------------- */
+  var faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(function (item) {
+    var btn = item.querySelector('.faq-q');
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('open');
+
+      // Close all
+      faqItems.forEach(function (i) {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked (unless it was already open)
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* -------------------------------------------------------
+     CONTACT FORM — validation + thank you
+  ------------------------------------------------------- */
+  var form = document.getElementById('contactForm');
+  var thankYou = document.getElementById('formThankYou');
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function setError(groupId, field) {
+    var group = document.getElementById(groupId);
+    if (group) {
+      group.classList.add('has-error');
+      field.classList.add('field-error');
+    }
+  }
+
+  function clearError(groupId, field) {
+    var group = document.getElementById(groupId);
+    if (group) {
+      group.classList.remove('has-error');
+      field.classList.remove('field-error');
+    }
+  }
+
+  // Live clear on input
+  var nameField  = document.getElementById('fname');
+  var phoneField = document.getElementById('fphone');
+  var emailField = document.getElementById('femail');
+  var dayField   = document.getElementById('fday');
+
+  nameField.addEventListener('input',  function () { clearError('fg-name',  nameField); });
+  phoneField.addEventListener('input', function () { clearError('fg-phone', phoneField); });
+  emailField.addEventListener('input', function () { clearError('fg-email', emailField); });
+  dayField.addEventListener('change',  function () { clearError('fg-day',   dayField); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var valid = true;
+
+    if (!nameField.value.trim()) {
+      setError('fg-name', nameField);
+      valid = false;
+    } else {
+      clearError('fg-name', nameField);
+    }
+
+    if (!phoneField.value.trim()) {
+      setError('fg-phone', phoneField);
+      valid = false;
+    } else {
+      clearError('fg-phone', phoneField);
+    }
+
+    if (!emailField.value.trim() || !validateEmail(emailField.value.trim())) {
+      setError('fg-email', emailField);
+      valid = false;
+    } else {
+      clearError('fg-email', emailField);
+    }
+
+    if (!dayField.value) {
+      setError('fg-day', dayField);
+      valid = false;
+    } else {
+      clearError('fg-day', dayField);
+    }
+
+    if (!valid) {
+      // Focus first error field
+      var firstErr = form.querySelector('.field-error');
+      if (firstErr) firstErr.focus();
+      return;
+    }
+
+    // Success: show thank you
+    form.style.display = 'none';
+    thankYou.classList.add('visible');
+    thankYou.focus();
+  });
+
+  /* -------------------------------------------------------
+     IMAGE ERROR FALLBACKS
+  ------------------------------------------------------- */
+  var heroBg = document.getElementById('heroBg');
+  // Test if hero image loads
+  var testImg = new Image();
+  testImg.onerror = function () {
+    heroBg.classList.add('error-fallback');
+  };
+  testImg.src = 'https://img1.wsimg.com/isteam/ip/0af6be3d-bd14-43a9-8e12-b7963bec0e0f/IMG_0021.jpg/:/rs=w:1920,cg:true';
+
+  /* -------------------------------------------------------
+     SMOOTH ANCHOR OFFSET (accounts for fixed nav)
+  ------------------------------------------------------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      var navHeight = nav.offsetHeight;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
