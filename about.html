@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Keith Stewart — Just Venting LLC | West Milford, NJ</title>
+  <meta name="description" content="Meet Keith Stewart, founder of Just Venting LLC. A West Milford local and 30-year volunteer firefighter who does every dryer vent cleaning himself.">
+  <meta property="og:title" content="About Keith Stewart — Just Venting LLC">
+  <meta property="og:description" content="Keith Stewart is a West Milford local and 30-year volunteer firefighter who founded Just Venting to protect Northern NJ homes from dryer fires.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* =====================================================
+       RESET & BASE
+    ===================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: #1E2A3A;
+      background: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    /* =====================================================
+       DESIGN TOKENS
+    ===================================================== */
+    :root {
+      --navy:         #0A1628;
+      --accent:       #2563A8;
+      --accent-hover: #1A4F8C;
+      --accent-light: #EBF3FB;
+      --charcoal:     #1E2A3A;
+      --off-white:    #F8F5F0;
+      --white:        #FFFFFF;
+      --gold:         #B8922A;
+      --text-muted:   #5A6A7A;
+      --max-w:      1200px;
+      --pad-section: 100px;
+      --pad-mobile:  64px;
+      --radius:      12px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.12);
+      --shadow-hero: 0 8px 48px rgba(0,0,0,0.20);
+      --ease-fast:  0.2s ease;
+      --ease-reveal: 0.6s ease;
+    }
+
+    /* =====================================================
+       TYPOGRAPHY SYSTEM
+    ===================================================== */
+    h1, h2, h3 {
+      font-family: 'DM Serif Display', serif;
+      line-height: 1.15;
+      font-weight: 400;
+    }
+    h1 { font-size: clamp(2.8rem, 6vw, 5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    h3 { font-size: 1.3rem; }
+    p  { font-size: 1.05rem; line-height: 1.7; }
+
+    .eyebrow {
+      display: block;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* =====================================================
+       LAYOUT UTILITIES
+    ===================================================== */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--ease-reveal), transform var(--ease-reveal);
+    }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: background var(--ease-fast), transform var(--ease-fast), border-color var(--ease-fast);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+      border: 1px solid #9A7822;
+      padding: 14px 28px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 4px;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      transition: background var(--ease-fast), transform var(--ease-fast);
+    }
+    .btn-gold:hover {
+      background: #A07820;
+      transform: translateY(-1px);
+    }
+    .btn-gold-nav {
+      padding: 9px 18px;
+      font-size: 0.87rem;
+      flex-shrink: 0;
+    }
+
+    /* =====================================================
+       SITE HEADER (2-tier)
+    ===================================================== */
+    #site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+    }
+
+    .header-top {
+      background: #0D1B2A;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 10px 0;
+    }
+    .header-top-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.18rem;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .header-logo svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+    .header-divider {
+      width: 1px;
+      height: 34px;
+      background: rgba(255,255,255,0.18);
+      margin: 0 14px;
+      flex-shrink: 0;
+    }
+    .header-credential {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .header-cred-line1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+    .header-cred-line2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      line-height: 1.2;
+    }
+    .header-phone {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .header-phone-label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.02em;
+      margin-bottom: 2px;
+    }
+    .header-phone-number {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      transition: color var(--ease-fast);
+      display: block;
+    }
+    .header-phone-number:hover { color: var(--gold); }
+
+    .header-nav {
+      background: var(--navy);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.28);
+    }
+    .header-nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      gap: 0;
+    }
+    .nav-link {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.87rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      text-decoration: none;
+      transition: color var(--ease-fast);
+      white-space: nowrap;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 14px; right: 14px;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform var(--ease-fast);
+    }
+    .nav-link:hover { color: var(--white); }
+    .nav-link.active { color: var(--white); }
+    .nav-link.active::after { transform: scaleX(1); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 19px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transform-origin: center;
+      transition: transform 0.32s ease, opacity 0.32s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+    /* Mobile overlay */
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--navy);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-16px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .mobile-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+    .mobile-overlay a {
+      color: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      padding: 18px 0;
+      transition: color var(--ease-fast);
+    }
+    .mobile-overlay a:hover { color: var(--accent); }
+    .mobile-overlay-sep {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.15);
+      margin: 12px 0;
+    }
+    .mobile-overlay-phone {
+      margin-top: 24px;
+      text-align: center;
+    }
+    .mobile-overlay-phone span {
+      display: block;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .mobile-overlay-phone a {
+      font-family: 'Manrope', sans-serif !important;
+      font-size: 1.4rem !important;
+      font-weight: 800 !important;
+      color: var(--accent) !important;
+      padding: 0 !important;
+    }
+
+    /* =====================================================
+       TESTIMONIALS (same as home)
+    ===================================================== */
+    #testimonials {
+      background: var(--charcoal);
+      padding: var(--pad-section) 0;
+    }
+    .test-hd {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .test-hd .eyebrow { margin-bottom: 12px; }
+    .test-hd h2 { color: var(--white); }
+    .test-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .test-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 30px;
+      box-shadow: var(--shadow-card);
+    }
+    .test-card.center-card {
+      padding: 40px 34px;
+      margin-top: -16px;
+    }
+    .test-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 18px;
+    }
+    .test-stars svg {
+      width: 17px;
+      height: 17px;
+      fill: #F59E0B;
+      stroke: none;
+    }
+    .test-body {
+      color: var(--charcoal);
+      font-size: 0.97rem;
+      line-height: 1.72;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .test-body::before {
+      content: '\201C';
+      font-family: 'DM Serif Display', serif;
+      font-size: 6rem;
+      color: var(--off-white);
+      position: absolute;
+      top: -28px;
+      left: -10px;
+      line-height: 1;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .test-body span { position: relative; z-index: 1; }
+    .test-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid #F0EDE8;
+      padding-top: 18px;
+    }
+    .test-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .test-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--charcoal);
+      margin-bottom: 2px;
+    }
+    .test-loc {
+      font-size: 0.78rem;
+      color: #9CA3AF;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    #footer {
+      background: var(--navy);
+      padding-top: 72px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 64px;
+    }
+    .footer-brand-wrap .footer-logo-mark {
+      font-family: 'DM Serif Display', serif;
+      color: var(--white);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 16px;
+    }
+    .footer-brand-wrap .footer-logo-mark svg { width: 24px; height: 24px; }
+    .footer-tagline {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      max-width: 300px;
+      margin-bottom: 22px;
+    }
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .social-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform var(--ease-fast), opacity var(--ease-fast);
+      text-decoration: none;
+    }
+    .social-circle:hover { transform: translateY(-2px); opacity: 0.88; }
+    .social-fb { background: #1877F2; }
+    .social-ig {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+    .social-google { background: #FFFFFF; }
+    .social-circle svg { display: block; }
+    .footer-col-hd {
+      color: var(--white);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .footer-col-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col-links a {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.92rem;
+      transition: color var(--ease-fast);
+    }
+    .footer-col-links a:hover { color: var(--gold); }
+    .footer-contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-phone-link {
+      color: var(--gold) !important;
+      font-size: 1rem !important;
+      font-weight: 700;
+    }
+    .footer-contact-block a,
+    .footer-contact-block span {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.92rem;
+      display: block;
+      transition: color var(--ease-fast);
+    }
+    .footer-contact-block a:hover { color: var(--gold); }
+    .footer-hours {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-top: 4px;
+    }
+    .footer-hours span {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.88rem;
+      display: block;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(37,99,168,0.45);
+      padding: 18px 0;
+    }
+    .footer-bottom-text {
+      color: rgba(255,255,255,0.25);
+      font-size: 0.76rem;
+      text-align: center;
+    }
+
+    /* =====================================================
+       CTA BAND
+    ===================================================== */
+    .cta-band {
+      background: var(--navy);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .cta-band-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .cta-band-sub {
+      font-size: 1rem;
+      color: rgba(180, 200, 220, 0.68);
+      margin-bottom: 34px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* =====================================================
+       PILL TAG
+    ===================================================== */
+    .hero-pill {
+      display: inline-block;
+      background: rgba(184, 146, 42, 0.12);
+      border: 1px solid rgba(184, 146, 42, 0.35);
+      color: var(--gold);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+    }
+
+    /* =====================================================
+       PAGE HERO
+    ===================================================== */
+    .page-hero {
+      position: relative;
+      background-color: #0D1B2A;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 28px,
+        rgba(255,255,255,0.025) 28px,
+        rgba(255,255,255,0.025) 29px
+      );
+      padding: 148px 0 88px;
+      overflow: hidden;
+    }
+    .page-hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 300px;
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      position: relative;
+      z-index: 2;
+    }
+    .page-hero h1 {
+      color: var(--white);
+      margin-bottom: 18px;
+      max-width: 680px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+    }
+    .page-hero-sub {
+      color: rgba(185, 205, 225, 0.78);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    /* =====================================================
+       ABOUT — BIO SECTION
+    ===================================================== */
+    .about-bio {
+      background: var(--off-white);
+      padding: var(--pad-section) 0;
+    }
+    .about-bio-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 72px;
+      align-items: start;
+      margin-bottom: 64px;
+    }
+    .about-photo {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block;
+      border: 3px solid var(--gold);
+    }
+    .about-bio-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--charcoal);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .about-bio-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .about-bio-text p {
+      color: #4A5568;
+      font-size: 1.02rem;
+      line-height: 1.78;
+      margin-bottom: 20px;
+    }
+    .about-bio-text p:last-child { margin-bottom: 0; }
+
+    /* =====================================================
+       ABOUT — STAT BOXES
+    ===================================================== */
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .about-stat-box {
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .about-stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .about-stat-label {
+      color: rgba(255,255,255,0.52);
+      font-size: 0.83rem;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    /* =====================================================
+       ABOUT — WHAT SETS KEITH APART
+    ===================================================== */
+    .apart-section {
+      background: #F8F3E8;
+      padding: var(--pad-section) 0;
+    }
+    .apart-hd {
+      margin-bottom: 52px;
+    }
+    .apart-hd h2 {
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .apart-hd-sub {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+    .apart-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .apart-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 34px 30px;
+      box-shadow: var(--shadow-card);
+    }
+    .apart-card-bar {
+      width: 38px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+    .apart-card h3 {
+      color: var(--charcoal);
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .apart-card p {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.75;
+    }
+
+    /* =====================================================
+       RESPONSIVE — TABLET
+    ===================================================== */
+    @media (max-width: 1024px) {
+      :root { --pad-section: 80px; }
+      .about-bio-grid { grid-template-columns: 260px 1fr; gap: 48px; }
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+      .test-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+      .test-card.center-card { margin-top: 0; padding: 32px 30px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 44px; }
+      .footer-brand-wrap { grid-column: 1 / -1; }
+    }
+
+    /* =====================================================
+       RESPONSIVE — MOBILE
+    ===================================================== */
+    @media (max-width: 768px) {
+      :root { --pad-section: var(--pad-mobile); }
+      .header-credential { display: none; }
+      .header-divider { display: none; }
+      .header-phone-number { font-size: 1.1rem; }
+      .nav-links { display: none; }
+      .btn-gold-nav { display: none; }
+      .hamburger { display: flex; }
+      .page-hero { padding: 120px 0 64px; }
+      .about-bio-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-photo { max-width: 300px; }
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+      .apart-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-brand-wrap { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<header id="site-header">
+  <div class="header-top">
+    <div class="header-top-inner">
+      <div class="header-brand">
+        <a href="index.html" class="header-logo" aria-label="Just Venting LLC — home">
+          <svg viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M13 29C13 29 5 24 5 16C5 11 8 7 10 5C10 7 11 9 12.5 10C12 8.5 12.5 6.5 14 5C14 7 15 9 14 11C16 9.5 17 7.5 16.5 5.5C18.5 8 19 11.5 17.5 14.5C19.5 13 20.5 10.5 20 8C21.5 10.5 22 14 20.5 17C19 19.5 16.5 21.5 16.5 21.5C18 19 18 16.5 16.5 14.5C17 17 15.5 20 13 21.5C14.5 19 14.5 16 12.5 14C13 16.5 12 19.5 9.5 21C11 19.5 11.5 17 10.5 15C9 17 9 21 11 24C9 23 7 21 6.5 18.5C6 21 7 24.5 9 27C10 28 11.5 29 13 29Z" fill="#2563A8"/>
+            <ellipse cx="13" cy="28" rx="4" ry="1.5" fill="rgba(37,99,168,0.2)"/>
+          </svg>
+          Just Venting LLC
+        </a>
+        <div class="header-divider" aria-hidden="true"></div>
+        <div class="header-credential">
+          <span class="header-cred-line1">30-year volunteer firefighter</span>
+          <span class="header-cred-line2">West Milford, NJ &middot; Serving Northern NJ</span>
+        </div>
+      </div>
+      <div class="header-phone">
+        <span class="header-phone-label">Call now for a free estimate.</span>
+        <a href="tel:+18455443046" class="header-phone-number">(845) 544-3046</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="header-nav" role="navigation" aria-label="Main navigation">
+    <div class="header-nav-inner">
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="service-areas.html" class="nav-link">Service Areas</a>
+        <a href="reviews.html" class="nav-link">Reviews</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <a href="schedule.html" class="btn-gold btn-gold-nav" aria-label="Schedule a dryer vent cleaning">Schedule a Cleaning</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html" class="mobile-nav-link">Home</a>
+  <div class="mobile-overlay-sep"></div>
+  <a href="about.html" class="mobile-nav-link">About</a>
+  <div class="mobile-overlay-sep"></div>
+  <a href="index.html#services" class="mobile-nav-link">Services</a>
+  <div class="mobile-overlay-sep"></div>
+  <a href="service-areas.html" class="mobile-nav-link">Service Areas</a>
+  <div class="mobile-overlay-sep"></div>
+  <a href="reviews.html" class="mobile-nav-link">Reviews</a>
+  <div class="mobile-overlay-sep"></div>
+  <a href="contact.html" class="mobile-nav-link">Contact</a>
+  <div class="mobile-overlay-phone">
+    <span>Call or Text</span>
+    <a href="tel:+18455443046">(845) 544-3046</a>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-label="About Just Venting LLC">
+  <div class="page-hero-grain" aria-hidden="true"></div>
+  <div class="page-hero-inner">
+    <div class="container">
+      <span class="hero-pill">About Just Venting</span>
+      <h1>Meet Keith Stewart</h1>
+      <p class="page-hero-sub">West Milford local. 30-year volunteer firefighter. The person who shows up every time you book.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BIO SECTION -->
+<section class="about-bio" aria-label="Keith Stewart biography">
+  <div class="container">
+
+    <div class="about-bio-grid">
+
+      <!-- Photo -->
+      <div class="reveal">
+        <img
+          src="images/keith-working.png"
+          alt="Keith Stewart, founder of Just Venting LLC, at work on a dryer vent"
+          class="about-photo"
+          loading="eager"
+          decoding="async"
+        >
+      </div>
+
+      <!-- Text -->
+      <div class="reveal reveal-d2">
+        <div class="about-bio-name">Keith Stewart.</div>
+        <div class="about-bio-title">Owner &middot; Just Venting LLC &middot; Volunteer Firefighter</div>
+        <div class="about-bio-text">
+          <p>Keith Stewart has lived in West Milford his whole life and has been a volunteer firefighter for over 30 years. In that time, he has responded to more house fires than most people will ever see up close, and he knows exactly what causes them. Lint-clogged dryer vents are one of the most common culprits, and almost every one of those fires was preventable.</p>
+          <p>In 2023, Keith founded Just Venting LLC to do something about it. He wanted to bring that fire safety knowledge out of the firehouse and into the homes of his neighbors. The goal was simple: give Northern NJ homeowners a reliable, honest, and genuinely expert option for dryer vent cleaning, run by someone who actually understands the risk.</p>
+          <p>Keith does every job himself. When you call Just Venting, you are talking to Keith. When someone shows up at your door, it is Keith. He is meticulous about his work, takes time to explain what he found and why it matters, and does not leave until everything is right. If something ever goes wrong, he makes it right, no questions asked.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stat boxes -->
+    <div class="about-stats">
+      <div class="about-stat-box reveal">
+        <span class="about-stat-num">30+</span>
+        <span class="about-stat-label">Years as a volunteer firefighter</span>
+      </div>
+      <div class="about-stat-box reveal reveal-d1">
+        <span class="about-stat-num">2023</span>
+        <span class="about-stat-label">Year Just Venting was founded</span>
+      </div>
+      <div class="about-stat-box reveal reveal-d2">
+        <span class="about-stat-num">5.0 &#9733;</span>
+        <span class="about-stat-label">Google rating across all reviews</span>
+      </div>
+      <div class="about-stat-box reveal reveal-d3">
+        <span class="about-stat-num">Eve &amp; Wknd</span>
+        <span class="about-stat-label">appointments available</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT SETS KEITH APART -->
+<section class="apart-section" aria-label="What sets Keith Stewart apart">
+  <div class="container">
+
+    <div class="apart-hd reveal">
+      <h2>What Sets <span style="color:var(--accent)">Keith Apart</span></h2>
+      <p class="apart-hd-sub">The things customers mention every single time.</p>
+    </div>
+
+    <div class="apart-grid">
+
+      <div class="apart-card reveal">
+        <div class="apart-card-bar" aria-hidden="true"></div>
+        <h3>He goes above and beyond</h3>
+        <p>Keith does not stop at what was asked. He checks the full system, cleans the surrounding area, and makes sure everything is working correctly before he considers the job done. Customers consistently note he catches things other services missed entirely.</p>
+      </div>
+
+      <div class="apart-card reveal reveal-d1">
+        <div class="apart-card-bar" aria-hidden="true"></div>
+        <h3>He explains everything clearly</h3>
+        <p>Keith takes time to show you what he found and explain what it means for your home. His firefighter background means he can tell you exactly why a clogged vent is a real hazard, not just a sales pitch, and customers appreciate that honesty.</p>
+      </div>
+
+      <div class="apart-card reveal reveal-d2">
+        <div class="apart-card-bar" aria-hidden="true"></div>
+        <h3>He makes it right, always</h3>
+        <p>If something is not perfect, Keith comes back and fixes it. No hassle, no excuses. He stands behind his work and takes personal responsibility for every job he does. That is the standard he holds himself to and has since day one.</p>
+      </div>
+
+      <div class="apart-card reveal reveal-d3">
+        <div class="apart-card-bar" aria-hidden="true"></div>
+        <h3>He works around your schedule</h3>
+        <p>Keith offers evening and weekend appointments specifically so you never have to take time off work. He is available Monday through Saturday until 9PM and Sundays until 5PM, and scheduling is quick and straightforward.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CUSTOMER REVIEWS -->
+<section id="testimonials" aria-label="Customer reviews">
+  <div class="container">
+
+    <div class="test-hd reveal">
+      <span class="eyebrow">What Customers Say</span>
+      <h2>Real results.<br>Real neighbors.</h2>
+    </div>
+
+    <div class="test-grid">
+
+      <div class="test-card reveal">
+        <div class="test-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="test-body">
+          <span>We recently had Keith out to clean our dryer vents and would highly recommend his services. Keith is incredibly pleasant to work with, genuine, friendly, and professional. His services were reasonably priced and he did an outstanding job. He was very meticulous, made sure everything was in working order, and left our dryer spotless. Keith is a volunteer firefighter which made me feel confident that everything was safe when he finished. I will definitely be using Just Venting again.</span>
+        </div>
+        <div class="test-author">
+          <div class="test-avatar" style="background: #D32323;" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M20.16 12.594l-4.995 1.745c-.53.183-.96-.218-.96-.773V8.03c0-.556.427-.958.96-.778l4.995 1.746a.84.84 0 0 1 0 1.596zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.405 14.364l-2.085 2.927c-.38.534-1.116.56-1.629.085L10.5 17.5l-.5 1.5-2.5-.5.5-4.5 1.5.5.5-1.5-2.232-1.6c-.517-.37-.565-1.106-.1-1.554l2.732-2.6c.463-.45 1.2-.358 1.583.19l2.017 2.914 1.5-1 2 2-1 2 1.5 1c.55.367.598 1.13.105 1.514z"/></svg>
+          </div>
+          <div>
+            <div class="test-name">Yelp Reviewer</div>
+            <div class="test-loc">West Milford, NJ &middot; Yelp</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-card center-card reveal reveal-d2">
+        <div class="test-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="test-body">
+          <span>Keith did an excellent job cleaning our dryer vent. The previous two contractors I hired did half a job and called it a day. When Keith cleaned the dryer side I could see the difference immediately. Thorough, professional, and he explained everything he found.</span>
+        </div>
+        <div class="test-author">
+          <div class="test-avatar" style="background: #720E9E;" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2L8.5 8.5H2l5.25 4.5L5 20l7-4.5L19 20l-2.25-7L22 8.5h-6.5z"/></svg>
+          </div>
+          <div>
+            <div class="test-name">Yahoo Local Reviewer</div>
+            <div class="test-loc">Northern NJ &middot; Yahoo Local</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-card reveal reveal-d3">
+        <div class="test-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="test-body">
+          <span>I thought I was doing everything right by cleaning my lint trap after each use, but I was shocked at all the lint that came out during Keith's cleaning. He came out on a Sunday, did a great job, and took the time to explain the fire risk. That kind of service you actually remember.</span>
+        </div>
+        <div class="test-author">
+          <div class="test-avatar" style="background: #4285F4;" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          </div>
+          <div>
+            <div class="test-name">Google Reviewer</div>
+            <div class="test-loc">Northern NJ &middot; Google</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" aria-label="Book a cleaning with Keith">
+  <div class="container">
+    <h2 class="cta-band-heading">Ready to book with Keith?</h2>
+    <p class="cta-band-sub">Free estimates, flexible scheduling, and a job done right the first time.</p>
+    <a href="schedule.html" class="btn-gold" aria-label="Schedule a dryer vent cleaning">Schedule a Cleaning</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand-wrap">
+        <div class="footer-logo-mark">
+          <svg viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M13 29C13 29 5 24 5 16C5 11 8 7 10 5C10 7 11 9 12.5 10C12 8.5 12.5 6.5 14 5C14 7 15 9 14 11C16 9.5 17 7.5 16.5 5.5C18.5 8 19 11.5 17.5 14.5C19.5 13 20.5 10.5 20 8C21.5 10.5 22 14 20.5 17C19 19.5 16.5 21.5 16.5 21.5C18 19 18 16.5 16.5 14.5C17 17 15.5 20 13 21.5C14.5 19 14.5 16 12.5 14C13 16.5 12 19.5 9.5 21C11 19.5 11.5 17 10.5 15C9 17 9 21 11 24C9 23 7 21 6.5 18.5C6 21 7 24.5 9 27C10 28 11.5 29 13 29Z" fill="#2563A8"/>
+          </svg>
+          Just Venting LLC
+        </div>
+        <p class="footer-tagline">Dryer vent cleaning by a 30-year volunteer firefighter. Serving Northern NJ with honest work and real expertise.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-circle social-fb" aria-label="Just Venting LLC on Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="#ffffff"/></svg>
+          </a>
+          <a href="#" class="social-circle social-ig" aria-label="Just Venting LLC on Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#ffffff" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#ffffff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="#ffffff"/></svg>
+          </a>
+          <a href="#" class="social-circle social-google" aria-label="Just Venting LLC on Google">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer-col-hd">Quick Links</p>
+        <nav class="footer-col-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="index.html#services">Services</a>
+          <a href="service-areas.html">Service Areas</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+
+      <div>
+        <p class="footer-col-hd">Get In Touch</p>
+        <div class="footer-contact-block">
+          <a href="tel:+18455443046" class="footer-phone-link">(845) 544-3046</a>
+          <a href="mailto:justventllc@gmail.com">justventllc@gmail.com</a>
+          <div class="footer-hours">
+            <span>Mon&ndash;Sat: 9AM to 9PM</span>
+            <span>Sunday: 10AM to 5PM</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="footer-bottom-text">Copyright 2026 Just Venting LLC &middot; West Milford, NJ &middot; Serving Northern New Jersey.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* Hamburger / Mobile Overlay */
+  var hamburger = document.getElementById('hamburger');
+  var mobileOverlay = document.getElementById('mobileOverlay');
+  var mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  var overlayOpen = false;
+
+  function openMenu() {
+    overlayOpen = true;
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close menu');
+    mobileOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    overlayOpen = false;
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
+    mobileOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', function () {
+    if (overlayOpen) { closeMenu(); } else { openMenu(); }
+  });
+
+  mobileLinks.forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  /* Scroll Reveal */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+}());
+</script>
+
+</body>
+</html>
